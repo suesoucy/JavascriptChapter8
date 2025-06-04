@@ -1,1 +1,17 @@
+In this project you will build the object class for a countdown timer. The timer object will have properties to record the minutes and seconds remaining, and to record the id value used with for the windows.setInterval() method. The timer object will also have a method that runs the timer, updating its value once per second or pausing the timer. A preview of the interface that controls the actions of the timer object is shown in figure 8-34. 
+1. Use your code editor to open the project08-01_txt.html and project08-01_txt.js files from the js08project01 folder. Enter your name and the date in the comment section of each file and save them as project08-01.html and project08-01.js. 
+2. Go to the project08-01.html file in your code editor and link the page to the project08-01.js file, deferring the script until after the page loads. Take some time to study the code of the file and then close it, saving your changes. 
+3. Return to the project08-01.js file in your code editor. Directly below the Object Code comment add a constructor function for the timer object containing two parameters named min and sec. Set the timer.minutes property to equal min, the timer.seconds property equal to sec, and the timer.timeID property equal to null.
+4. Directly below the timer() constructor function, add the runPause() method to the timer object class prototype. The runPause() method has three parameters named timer, minBox, and secBox. Within the anonymous function for the runPause() method add the tasks described in steps 5 and 6. 
+5. Insert an if else statement testing wether timer.timedID is truthy (has a value). If it does, you will pause the timer by applying the window.clearInterval() method using timer.timeID as the parameter value, set timer.timeID equal to null. Otherwise, run the window.setInterval() method to start the timer, running the countdown() function every 1000 milliseconds, store the id of the setInterval() method in the timer.timeID property. 
+6. Add the countdown() function that updates the timer every second. WIthin the function, add an if else statement that does the following 
+    - If timer.seconds is greater than 0, decrease the value of timer.seconds by 1. 
+    - Else if timer.minutes is greater than 0, decrease the value of timer.minutes by 1 and set the value of timer.seconds to 59.
+    - Else the timer has reached 0:0, stop the timer by running the window.ClearInterval() method with timer.timeID() as the parameter value and set the value of timer.timeID to null.
+    - After the if else statement, write the value of timer.minutes to minBox.value and timer.seconds to secBox.value. 
+7. Scroll to the bottom of the file. Declare an instance of the timer object and name it myTimer using minBox.value and secBox.value as the parameter values for the initial value of the timer. 
+8. Create an onchange event handler for minBox that sets myTimer.minutes to minBox.value. Create an onchange event handler for secBox that sets myTimer.seconds to secBox.value.
+9. Create an onclick event handler for the runPauseTimer button that runs an anonymous function that applies the runPause() method to myTimer using myTimer, minBox, and secBox as the parameter values. 
+10. Save your changes to the file and then load project08-01.html in your web browser. 
+11. Verify that clicking the RUN/PAUSE button alternately starts and pauses the timer and that the timer correctly updates itself every second, stopping when reaching 0:0. 
 
